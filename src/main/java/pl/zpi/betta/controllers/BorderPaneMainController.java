@@ -7,9 +7,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 
-import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.Period;
 
 public class BorderPaneMainController {
+    private LocalDate localDate;
+    private LocalDate date;
     ObservableList currencyList = FXCollections.observableArrayList("PLN", "USD", "EUR", "GBP", "CHF", "AUD", "CAD", "SGD", "JPY","RUB","SEK");
     ObservableList analysisList = FXCollections.observableArrayList("Wyznaczenie ilości sesji", "Miary statystyczne", "Rozkład częstości zmian");
     ObservableList periodList = FXCollections.observableArrayList("Tydzień" , "2 Tygodnie", "Miesiąc", "1/4 Roku", "1/2 Roku", "Rok");
@@ -51,30 +54,40 @@ public class BorderPaneMainController {
         String value1 = (String) currencyChoiceBox1.getValue();
         String value2 = (String) currencyChoiceBox2.getValue();
         String per = (String) periodChoiceBox.getValue();
-        int period = 0;
+        String url;
         switch (per) {
             case "Tydzień":
-                period = 7;
+                 localDate = LocalDate.now();
+                 date = localDate.minus(Period.ofWeeks(1));
+                  url = "http://api.nbp.pl/api/exchangerates/rates/A/"+ value1 +"/" + date.toString()+"/"+localDate.toString()+"/";
                 break;
             case "2 Tygodnie":
-                period = 14;
+                 localDate = LocalDate.now();
+                 date = localDate.minus(Period.ofWeeks(2));
+                url = "http://api.nbp.pl/api/exchangerates/rates/A/"+ value1 +"/" + date.toString()+"/"+localDate.toString()+"/";
                 break;
             case "Miesiąc":
-                period = 31;
+                localDate = LocalDate.now();
+                date = localDate.minus(Period.ofMonths(1));
+                url = "http://api.nbp.pl/api/exchangerates/rates/A/"+ value1 +"/" + date.toString()+"/"+localDate.toString()+"/";
                 break;
             case "1/4 Roku":
-                period = 123;
+                localDate = LocalDate.now();
+                date = localDate.minus(Period.ofMonths(3));
+                url = "http://api.nbp.pl/api/exchangerates/rates/A/"+ value1 +"/" + date.toString()+"/"+localDate.toString()+"/";
                 break;
             case "1/2 Roku":
-                period = 182;
+                localDate = LocalDate.now();
+                date = localDate.minus(Period.ofMonths(6));
+                url = "http://api.nbp.pl/api/exchangerates/rates/A/"+ value1 +"/" + date.toString()+"/"+localDate.toString()+"/";
                 break;
             case "Rok":
-                //do naprawy
-                period = 255;
+                localDate = LocalDate.now();
+                date = localDate.minus(Period.ofYears(1));
+                url = "http://api.nbp.pl/api/exchangerates/rates/A/"+ value1 +"/" + date.toString()+"/"+localDate.toString()+"/";
                 break;
         }
-        String url = "http://api.nbp.pl/api/exchangerates/rates/A/"+ value1 +"/last/" + period + "/";
-        System.out.println(url);
+
 
     }
 }
