@@ -1,6 +1,6 @@
 language: java
 
-before_install:
-  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+#before_install:
+#  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 

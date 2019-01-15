@@ -21,11 +21,11 @@
         </plugins>
     </build>
     <dependencies>
-        <dependency>
-            <groupId>ZPI-Gamma</groupId>
-            <artifactId>ZPI-Gamma</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>ZPI-Gamma</groupId>-->
+            <!--<artifactId>ZPI-Gamma</artifactId>-->
+            <!--<version>1.0-SNAPSHOT</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>com.google.code.gson</groupId>
