@@ -6,10 +6,16 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
+import pl.zpi.betta.DownloadData;
 
-import java.util.Scanner;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.Period;
 
 public class BorderPaneMainController {
+    private DownloadData downloadData;
+    private LocalDate localDate;
+    private LocalDate date;
     ObservableList currencyList = FXCollections.observableArrayList("PLN", "USD", "EUR", "GBP", "CHF", "AUD", "CAD", "SGD", "JPY","RUB","SEK");
     ObservableList analysisList = FXCollections.observableArrayList("Wyznaczenie ilości sesji", "Miary statystyczne", "Rozkład częstości zmian");
     ObservableList periodList = FXCollections.observableArrayList("Tydzień" , "2 Tygodnie", "Miesiąc", "1/4 Roku", "1/2 Roku", "Rok");
@@ -30,6 +36,9 @@ public class BorderPaneMainController {
     @FXML
     private Button applyButton;
 
+    public BorderPaneMainController() throws IOException {
+    }
+
     @FXML
     private void initialize() {
         currencyChoiceBox1.setValue("PLN");
@@ -48,33 +57,51 @@ public class BorderPaneMainController {
 
     @FXML
     private void applyOnClick() {
+        String table = "A";
         String value1 = (String) currencyChoiceBox1.getValue();
         String value2 = (String) currencyChoiceBox2.getValue();
         String per = (String) periodChoiceBox.getValue();
-        int period = 0;
+        String url;
+
         switch (per) {
             case "Tydzień":
-                period = 7;
+                 localDate = LocalDate.now();
+                 date = localDate.minus(Period.ofWeeks(1));
+                  url = "http://api.nbp.pl/api/exchangerates/rates/"+table+ "/"+ value1 +"/" + date.toString()+"/"+localDate.toString()+"/?format=json";
+                downloadData = new DownloadData(url);
                 break;
             case "2 Tygodnie":
-                period = 14;
+                 localDate = LocalDate.now();
+                 date = localDate.minus(Period.ofWeeks(2));
+                url = "http://api.nbp.pl/api/exchangerates/rates/"+table+ "/"+ value1 +"/" + date.toString()+"/"+localDate.toString()+"/?format=json";
+                downloadData = new DownloadData(url);
                 break;
             case "Miesiąc":
-                period = 31;
+                localDate = LocalDate.now();
+                date = localDate.minus(Period.ofMonths(1));
+                url = "http://api.nbp.pl/api/exchangerates/rates/"+table+ "/"+ value1 +"/" + date.toString()+"/"+localDate.toString()+"/?format=json";
+                downloadData = new DownloadData(url);
                 break;
             case "1/4 Roku":
-                period = 123;
+                localDate = LocalDate.now();
+                date = localDate.minus(Period.ofMonths(3));
+                url = "http://api.nbp.pl/api/exchangerates/rates/"+table+ "/"+ value1 +"/" + date.toString()+"/"+localDate.toString()+"/?format=json";
+                downloadData = new DownloadData(url);
                 break;
             case "1/2 Roku":
-                period = 182;
+                localDate = LocalDate.now();
+                date = localDate.minus(Period.ofMonths(6));
+                url = "http://api.nbp.pl/api/exchangerates/rates/"+table+ "/"+ value1 +"/" + date.toString()+"/"+localDate.toString()+"/?format=json";
+                downloadData = new DownloadData(url);
                 break;
             case "Rok":
-                //do naprawy
-                period = 255;
+                localDate = LocalDate.now();
+                date = localDate.minus(Period.ofYears(1));
+                url = "http://api.nbp.pl/api/exchangerates/rates/"+table+ "/"+ value1 +"/" + date.toString()+"/"+localDate.toString()+"/?format=json";
+                downloadData = new DownloadData(url);
                 break;
         }
-        String url = "http://api.nbp.pl/api/exchangerates/rates/A/"+ value1 +"/last/" + period + "/";
-        System.out.println(url);
+
 
     }
 }
