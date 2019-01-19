@@ -61,47 +61,28 @@ public class BorderPaneMainController {
         String value1 = (String) currencyChoiceBox1.getValue();
         String value2 = (String) currencyChoiceBox2.getValue();
         String per = (String) periodChoiceBox.getValue();
-        String url;
-
+        localDate = LocalDate.now();
         switch (per) {
             case "Tydzień":
-                 localDate = LocalDate.now();
                  date = localDate.minus(Period.ofWeeks(1));
-                  url = "http://api.nbp.pl/api/exchangerates/rates/"+table+ "/"+ value1 +"/" + date.toString()+"/"+localDate.toString()+"/?format=json";
-                downloadData = new DownloadData(url);
                 break;
             case "2 Tygodnie":
-                 localDate = LocalDate.now();
                  date = localDate.minus(Period.ofWeeks(2));
-                url = "http://api.nbp.pl/api/exchangerates/rates/"+table+ "/"+ value1 +"/" + date.toString()+"/"+localDate.toString()+"/?format=json";
-                downloadData = new DownloadData(url);
                 break;
             case "Miesiąc":
-                localDate = LocalDate.now();
                 date = localDate.minus(Period.ofMonths(1));
-                url = "http://api.nbp.pl/api/exchangerates/rates/"+table+ "/"+ value1 +"/" + date.toString()+"/"+localDate.toString()+"/?format=json";
-                downloadData = new DownloadData(url);
                 break;
             case "1/4 Roku":
-                localDate = LocalDate.now();
                 date = localDate.minus(Period.ofMonths(3));
-                url = "http://api.nbp.pl/api/exchangerates/rates/"+table+ "/"+ value1 +"/" + date.toString()+"/"+localDate.toString()+"/?format=json";
-                downloadData = new DownloadData(url);
                 break;
             case "1/2 Roku":
-                localDate = LocalDate.now();
                 date = localDate.minus(Period.ofMonths(6));
-                url = "http://api.nbp.pl/api/exchangerates/rates/"+table+ "/"+ value1 +"/" + date.toString()+"/"+localDate.toString()+"/?format=json";
-                downloadData = new DownloadData(url);
                 break;
             case "Rok":
-                localDate = LocalDate.now();
                 date = localDate.minus(Period.ofYears(1));
-                url = "http://api.nbp.pl/api/exchangerates/rates/"+table+ "/"+ value1 +"/" + date.toString()+"/"+localDate.toString()+"/?format=json";
-                downloadData = new DownloadData(url);
                 break;
         }
-
+        downloadData = new DownloadData("http://api.nbp.pl/api/exchangerates/rates/"+table+ "/"+ value1 +"/" + date.toString()+"/"+localDate.toString()+"/?format=json");
 
     }
 }
