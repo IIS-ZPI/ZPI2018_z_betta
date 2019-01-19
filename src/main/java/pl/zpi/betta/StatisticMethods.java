@@ -69,4 +69,24 @@ public class StatisticMethods {
         return median;
     }
 
+    //dominanta
+    public Float getMode(){
+        float maxValue = 0;
+        int maxCount = 0, i, j;
+
+        for (i = 0; i < vals.size(); ++i) {
+            int count = 0;
+            for (j = 0; j < vals.size(); ++j) {
+                if (vals.get(j) == vals.get(i))
+                    ++count;
+            }
+
+            if (count > maxCount) {
+                maxCount = count;
+                maxValue = vals.get(i);
+            }
+        }
+        return maxValue;
+    }
+
 }
