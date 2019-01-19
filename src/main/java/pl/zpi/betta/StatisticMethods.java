@@ -89,4 +89,22 @@ public class StatisticMethods {
         return maxValue;
     }
 
+    //odchylenie standardowe
+    public Float getStandardDev(){
+        float sum = (float) 0.0, standardDeviation = (float) 0.0;
+        int length = vals.size();
+
+        for(float num : vals) {
+            sum += num;
+        }
+
+        double mean = sum/length;
+
+        for(float num: vals) {
+            standardDeviation += Math.pow(num - mean, 2);
+        }
+
+        return (float) Math.sqrt(standardDeviation/length);
+    }
+
 }
