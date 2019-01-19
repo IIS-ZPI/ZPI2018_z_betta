@@ -1,24 +1,27 @@
 package pl.zpi.betta;
 
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import javax.print.attribute.standard.MediaName;
+import java.lang.reflect.Array;
+import java.util.*;
+
+import static java.util.Collections.sort;
 
 public class StatisticMethods {
     private Map<String,Float> value = new LinkedHashMap<String,Float>();
+    private ArrayList<Float> vals = new ArrayList<Float>();
     private int wzrostowa =0;
     private int spadkowa =0;
     private int stala = 0;
 
     //w konstruktorze nalezy przekazac MAP z danymi!
     public StatisticMethods(Map<String,Float> newVal){
-        value = newVal;
+        updateMap(newVal);
     }
 
     //I hope it get up!
 
     //nalezy najpierw odpalic sessions, potem zgetowac paramtery
-    public void Sessions(){
+    public void sessions(){
         Iterator<Map.Entry<String,Float>> it = value.entrySet().iterator();
         Map.Entry<String,Float>aktualnaPara = it.next();
         Map.Entry<String,Float>nastepna = it.next();
@@ -43,4 +46,27 @@ public class StatisticMethods {
     public int getStala(){
         return stala;
     }
+
+    public void updateMap(Map<String,Float>newVal){
+        value = newVal;
+        updateVals();
+    }
+    public void updateVals(){
+        for(Map.Entry<String,Float> entry : value.entrySet()){ vals.add(entry.getValue()); }
+    }
+    //mediana
+    public double getMedian(){
+        vals.sort((Float f1, Float f2)-> f1.compareTo(f2));
+
+        double median = 0;
+        double pos1 = Math.floor((vals.size() - 1.0) / 2.0);
+        double pos2 = Math.ceil((vals.size()- 1.0) / 2.0);
+        if (pos1 == pos2 ) {
+            median = vals.get((int)pos1);
+        } else {
+            median = (vals.get((int)pos1) + vals.get((int)pos2)) / 2.0 ;
+        }
+        return median;
+    }
+
 }
