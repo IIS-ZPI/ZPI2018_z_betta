@@ -25,6 +25,8 @@ public class DownloadData {
         DataObject obj = gson.fromJson(reader, DataObject.class);
         setValue(obj);
     }
+
+
     public Map<String, Float> getValue() {
         return value;
     }
