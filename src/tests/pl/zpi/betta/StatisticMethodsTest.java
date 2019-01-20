@@ -15,13 +15,15 @@ class StatisticMethodsTest {
 
     DownloadData weekDownload = new DownloadData("http://api.nbp.pl/api/exchangerates/rates/a/gbp/2018-01-01/2018-01-08/");
     Map<String, Float> weekMap = weekDownload.getValue();
+    StatisticMethods statystyki = new StatisticMethods(weekMap);
+    statystyki.updateVals();
 
     //test dla mediany
     @Test
     void testWeekGetMedian(){
-        statisticMethodsTest.StatisticMethods(weekMap);
-        statisticMethodsTest.updateMap(weekMap);
-        double y =statisticMethodsTest.getMedian();
+        //statisticMethodsTest.StatisticMethods(weekMap);
+        //statisticMethodsTest.updateMap(weekMap);
+        double y =statystyki.getMedian();
         double x= 4.6805;
         assertEquals(x,y);
     }
