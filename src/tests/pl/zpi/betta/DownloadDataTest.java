@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DownloadDataTest {
 
-//test - pobieranie danych z dnia
+//test - pobieranie danych z dnia  ------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
     // test dla pobierania z api dla "gbp" - funt szerling
@@ -60,7 +60,7 @@ class DownloadDataTest {
     }
 
 
-//test - Sprawdzenie dla pobierania danych z tygodnia
+//test - Sprawdzenie dla pobierania danych z tygodnia  -------------------------------------------------------------------------------------------------------------------------------------------
 @Test
 void weekDownloadTest(){
    // System.out.println("Pobieranie danych dla tygodnia");
@@ -71,7 +71,7 @@ void weekDownloadTest(){
     assertEquals((float)x,map.size());
 }
 
-    //test - Sprawdzenie dla pobierania danych z dwóch tygodni
+    //test - Sprawdzenie dla pobierania danych z dwóch tygodni  -------------------------------------------------------------------------------------------------------------------------------------------
     @Test
     void twoWeeksDownloadTest(){
      //   System.out.println("Pobieranie danych dla dwóch tygodni");
@@ -82,7 +82,7 @@ void weekDownloadTest(){
         assertEquals((float)x,map.size());
     }
 
-//test - Sprawdzenie dla pobierania danych z miesiąca
+//test - Sprawdzenie dla pobierania danych z miesiąca  -------------------------------------------------------------------------------------------------------------------------------------------
     @Test
     void monthDownloadTest(){
      //   System.out.println("Pobieranie danych dla miesiaca");
@@ -93,7 +93,7 @@ void weekDownloadTest(){
         assertEquals((float)x,map.size());
     }
 
-    //test - Sprawdzenie dla pobierania danych z kwartału
+    //test - Sprawdzenie dla pobierania danych z kwartału  -------------------------------------------------------------------------------------------------------------------------------------------
     @Test
     void quarterDownloadTest(){
      //   System.out.println("Pobieranie danych dla kwartału");
@@ -104,7 +104,7 @@ void weekDownloadTest(){
         assertEquals((float)x,map.size());
     }
 
-    //test - Sprawdzenie dla pobierania danych z połowy roku
+    //test - Sprawdzenie dla pobierania danych z połowy roku  -------------------------------------------------------------------------------------------------------------------------------------------
     @Test
     void halfYearDownloadTest(){
         //System.out.println("Pobieranie danych dla połowy roku");
@@ -116,11 +116,11 @@ void weekDownloadTest(){
     }
 
 
-    //test - Sprawdzenie dla pobierania danych z  roku
+    //test - Sprawdzenie dla pobierania danych z  roku  -------------------------------------------------------------------------------------------------------------------------------------------
     @Test
     void yearDownloadTest(){
      //   System.out.println("Pobieranie danych dla roku");
-        DownloadData download = new DownloadData("http://api.nbp.pl/api/exchangerates/rates/a/huf/2018-01-01/2018-12-31/");
+        DownloadData download = new DownloadData("http://api.nbp.pl/api/exchangerates/rates/a/gbp/2018-01-01/2018-12-31/");
         Map<String, Float> map = download.getValue();
         //System.out.println(map.size());
         int x = 252; // zliczone na sztywno
