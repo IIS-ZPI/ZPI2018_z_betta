@@ -12,13 +12,19 @@ public class StatisticMethods {
     private int wzrostowa =0;
     private int spadkowa =0;
     private int stala = 0;
+    private String currency = "";
 
     //w konstruktorze nalezy przekazac MAP z danymi!
-    public StatisticMethods(Map<String,Float> newVal){
+    public StatisticMethods(Map<String,Float> newVal, String currency){
+        this.currency = currency;
         updateMap(newVal);
     }
 
     //I hope it get up!
+
+    public String getCurrency() {
+        return currency;
+    }
 
     //nalezy najpierw odpalic sessions, potem zgetowac paramtery
     public void sessions(){
