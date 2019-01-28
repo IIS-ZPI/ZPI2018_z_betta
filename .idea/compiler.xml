@@ -10,5 +10,6 @@
         <module name="ZPI2018_z_betta.w" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="8" />
   </component>
 </project>

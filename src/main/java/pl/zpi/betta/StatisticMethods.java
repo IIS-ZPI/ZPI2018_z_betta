@@ -2,6 +2,7 @@ package pl.zpi.betta;
 
 import javax.print.attribute.standard.MediaName;
 import java.lang.reflect.Array;
+import java.text.DecimalFormat;
 import java.util.*;
 
 import static java.util.Collections.sort;
@@ -13,6 +14,7 @@ public class StatisticMethods {
     private int spadkowa =0;
     private int stala = 0;
     private String currency = "";
+
 
     //w konstruktorze nalezy przekazac MAP z danymi!
     public StatisticMethods(Map<String,Float> newVal, String currency){
@@ -44,7 +46,7 @@ public class StatisticMethods {
         }
     }
     public int getWzrostowa(){
-        return wzrostowa;
+        return wzrostowa +1 ;
     }
     public int getSpadkowa(){
         return spadkowa;
@@ -58,7 +60,11 @@ public class StatisticMethods {
         updateVals();
     }
     public void updateVals(){
-        for(Map.Entry<String,Float> entry : value.entrySet()){ vals.add(entry.getValue()); }
+
+        for(Map.Entry<String,Float> entry : value.entrySet()){
+            float tmp = ((int)(entry.getValue() * 10000))/10000;
+            vals.add(tmp);
+        }
     }
     //mediana
     public double getMedian(){
