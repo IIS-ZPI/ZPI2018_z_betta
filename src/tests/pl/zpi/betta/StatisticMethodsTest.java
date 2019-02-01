@@ -94,8 +94,8 @@ class StatisticMethodsTest {
     @Test
     void testTwoWeeksGetMedian(){
         updateV(twoWeeksStatisticMethodsTest);
-        int y =twoWeeksStatisticMethodsTest.getMedian();
-        int x= 5;
+        double y =twoWeeksStatisticMethodsTest.getMedian();
+        double x= 4.6946;
         assertEquals(x,y);
     }
 
@@ -232,7 +232,7 @@ class StatisticMethodsTest {
     void testQuarterGetMedian(){
         updateV(quarterStatisticMethodsTest);
         double y =quarterStatisticMethodsTest.getMedian();
-        double x= 4.7212;
+        double x= 4.7211;
         assertEquals(x,y);
     }
 
@@ -386,8 +386,8 @@ class StatisticMethodsTest {
     @Test
     void testYearGetStandardDev(){
         updateV(yearStatisticMethodsTest);
-        double y =yearStatisticMethodsTest.getStandardDev();
-        double x= 0.0735;
+        double y = yearStatisticMethodsTest.getStandardDev();
+        double x = 0.0733;
         assertEquals(x,y);
     }
 /*

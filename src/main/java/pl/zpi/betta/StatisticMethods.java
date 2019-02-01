@@ -72,7 +72,7 @@ public class StatisticMethods {
         }
     }
     //mediana
-    public int getMedian(){
+    public double getMedian(){
         vals.sort((Float f1, Float f2)-> f1.compareTo(f2));
 
         double median = 0;
@@ -85,8 +85,8 @@ public class StatisticMethods {
         } else {
             median = (vals.get((int)pos1) + vals.get((int)pos2)) / 2.0 ;
         }
-        System.out.println((int)median);
-        return (int)(median);
+        System.out.println(median);
+        return (double)Math.round( median * 10000) / 10000 ;
     }
 
     //dominanta
@@ -128,8 +128,9 @@ public class StatisticMethods {
         for(float num: vals) {
             standardDeviation += Math.pow(num - mean, 2);
         }
-
-        return (float) Math.round( Math.sqrt(standardDeviation/length) * 10000) / 10000;
+        float tmp = (float)Math.round( Math.sqrt(standardDeviation/length) * 10000) / 10000;
+        System.out.println(tmp);
+        return tmp;
     }
 
 }
