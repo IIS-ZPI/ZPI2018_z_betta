@@ -15,10 +15,13 @@ public class StatisticMethods {
     private int stala = 0;
     private String currency = "";
 
-
     //w konstruktorze nalezy przekazac MAP z danymi!
     public StatisticMethods(Map<String,Float> newVal, String currency){
         this.currency = currency;
+        updateMap(newVal);
+    }
+
+    public StatisticMethods(Map<String,Float> newVal){
         updateMap(newVal);
     }
 
@@ -60,25 +63,30 @@ public class StatisticMethods {
         updateVals();
     }
     public void updateVals(){
-
+        //System.out.println("Update vals!");
         for(Map.Entry<String,Float> entry : value.entrySet()){
-            float tmp = ((int)(entry.getValue() * 10000))/10000;
+            //System.out.println(entry.getValue());
+            Float tmp = (float) Math.round(entry.getValue() * 10000) / 10000;
             vals.add(tmp);
+            //System.out.println(tmp);
         }
     }
     //mediana
-    public double getMedian(){
+    public int getMedian(){
         vals.sort((Float f1, Float f2)-> f1.compareTo(f2));
 
         double median = 0;
-        double pos1 = Math.floor((vals.size() - 1.0) / 2.0);
-        double pos2 = Math.ceil((vals.size()- 1.0) / 2.0);
+        float pos1 = (float) Math.floor((vals.size()-1) / 2.0);
+        float pos2 = (float) Math.ceil((vals.size()-1) / 2.0);
+        System.out.println(pos1);
+        System.out.println(pos2);
         if (pos1 == pos2 ) {
             median = vals.get((int)pos1);
         } else {
             median = (vals.get((int)pos1) + vals.get((int)pos2)) / 2.0 ;
         }
-        return median;
+        System.out.println((int)median);
+        return (int)(median);
     }
 
     //dominanta
@@ -89,11 +97,16 @@ public class StatisticMethods {
         for (i = 0; i < vals.size(); ++i) {
             int count = 0;
             for (j = 0; j < vals.size(); ++j) {
-                if (vals.get(j) == vals.get(i))
+                //System.out.println(vals.get(j));
+                //System.out.println();
+                //System.out.println(vals.get(i));
+                if ((vals.get(j) == vals.get(i)) && (i != j))
                     ++count;
             }
-
+            //System.out.println(count);
             if (count > maxCount) {
+                //System.out.println(i);
+                //System.out.println(vals.get(i));
                 maxCount = count;
                 maxValue = vals.get(i);
             }
@@ -116,7 +129,7 @@ public class StatisticMethods {
             standardDeviation += Math.pow(num - mean, 2);
         }
 
-        return (float) Math.sqrt(standardDeviation/length);
+        return (float) Math.round( Math.sqrt(standardDeviation/length) * 10000) / 10000;
     }
 
 }

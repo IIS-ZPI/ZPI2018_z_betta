@@ -42,7 +42,7 @@ class StatisticMethodsTest {
     void testWeekGetStandardDev(){
         updateV(weekStatisticMethodsTest);
         float y =weekStatisticMethodsTest.getStandardDev();
-        double x= 0.0168;
+        double x= 0.0151;
         assertEquals((float)x,y);
     }
 
@@ -94,8 +94,8 @@ class StatisticMethodsTest {
     @Test
     void testTwoWeeksGetMedian(){
         updateV(twoWeeksStatisticMethodsTest);
-        double y =twoWeeksStatisticMethodsTest.getMedian();
-        double x= 4.6946;
+        int y =twoWeeksStatisticMethodsTest.getMedian();
+        int x= 5;
         assertEquals(x,y);
     }
 
@@ -113,7 +113,7 @@ class StatisticMethodsTest {
     void testTwoWeeksGetStandardDev(){
         updateV(twoWeeksStatisticMethodsTest);
         float y =twoWeeksStatisticMethodsTest.getStandardDev();
-        double x= 0.0232;
+        double x= 0.0221;
         assertEquals((float)x,y);
     }
 
@@ -182,7 +182,7 @@ class StatisticMethodsTest {
     void testMonthGetStandardDev(){
         updateV(monthStatisticMethodsTest);
         float y =monthStatisticMethodsTest.getStandardDev();
-        double x= 0.0281;
+        double x= 0.0274;
         assertEquals((float)x,y);
     }
 
@@ -250,7 +250,7 @@ class StatisticMethodsTest {
     void testQuarterGetStandardDev(){
         updateV(quarterStatisticMethodsTest);
         float y =quarterStatisticMethodsTest.getStandardDev();
-        double x= 0.0465;
+        double x= 0.0461;
         assertEquals((float)x,y);
     }
 /*
@@ -267,7 +267,7 @@ class StatisticMethodsTest {
     void testQuarterGetWzrostowa(){
         updateV(quarterStatisticMethodsTest);
         int y =quarterStatisticMethodsTest.getWzrostowa();
-        int x= 37;
+        int x= 38;
         assertEquals(x,y);
     }
 
@@ -276,7 +276,7 @@ class StatisticMethodsTest {
     void testQuarterGetSpadkowa(){
         updateV(quarterStatisticMethodsTest);
         int y =quarterStatisticMethodsTest.getSpadkowa();
-        int x= 26;
+        int x= 25;
         assertEquals(x,y);
     }
 
@@ -318,7 +318,7 @@ class StatisticMethodsTest {
     void testHalfYearGetStandardDev(){
         updateV(halfYearStatisticMethodsTest);
         float y =halfYearStatisticMethodsTest.getStandardDev();
-        double x= 0.0810;
+        double x= 0.0806;
         assertEquals((float)x,y);
     }
 /*
@@ -336,7 +336,7 @@ class StatisticMethodsTest {
     void testHalfYearGetWzrostowa(){
         updateV(halfYearStatisticMethodsTest);
         int y =halfYearStatisticMethodsTest.getWzrostowa();
-        int x= 71;
+        int x= 72;
         assertEquals(x,y);
     }
 
@@ -345,7 +345,7 @@ class StatisticMethodsTest {
     void testHalfYearGetSpadkowa(){
         updateV(halfYearStatisticMethodsTest);
         int y =halfYearStatisticMethodsTest.getSpadkowa();
-        int x= 53;
+        int x= 52;
         assertEquals(x,y);
     }
 
