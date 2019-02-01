@@ -15,8 +15,7 @@ public class Item {
     @Override
     public String toString() {
         NumberFormat nf = NumberFormat.getInstance( new Locale("US"));
-        nf.setMinimumFractionDigits(4);
-//        String s = nf.format(Float.toString(mid));
+        nf.setMinimumFractionDigits(5);
         return  effectiveDate + nf.format(mid);
     }
 }

@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="401.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.zpi.betta.controllers.BorderPaneMainController">
    <bottom>
@@ -52,11 +53,6 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <CheckBox fx:id="currencyBox1" mnemonicParsing="false" selected="true" text="Waluta 1">
-                     <GridPane.margin>
-                        <Insets left="50.0" />
-                     </GridPane.margin>
-                  </CheckBox>
                   <CheckBox fx:id="currencyBox2" mnemonicParsing="false" text="Waluta 2" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="50.0" />
@@ -64,6 +60,7 @@
                   </CheckBox>
                   <ChoiceBox fx:id="currencyChoiceBox1" prefWidth="150.0" GridPane.columnIndex="1" />
                   <ChoiceBox fx:id="currencyChoiceBox2" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Waluta" textAlignment="CENTER" wrappingWidth="178.68359375" />
                </children>
             </GridPane>
             <Separator prefWidth="200.0">
