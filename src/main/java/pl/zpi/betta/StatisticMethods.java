@@ -113,19 +113,28 @@ public class StatisticMethods {
 
     //odchylenie standardowe
     public Float getStandardDev(){
-        float sum = (float) 0.0, standardDeviation = (float) 0.0;
+        float standardDeviation = (float) 0.0;
         int length = vals.size();
 
-        for(float num : vals) {
-            sum += num;
-        }
-
-        double mean = sum/length;
+        float mean = getMean();
 
         for(float num: vals) {
             standardDeviation += Math.pow(num - mean, 2);
         }
         return (float)Math.round( Math.sqrt(standardDeviation/length) * 10000) / 10000;
+    }
+
+    //srednia
+    public Float getMean(){
+        float sum =0;
+        for(float num : vals){
+            sum += num;
+        }
+        return sum / vals.size();
+    }
+    //wspolczynnik zmiennosci
+    public Float getVariationCoefficient(){
+        return (float)Math.round((getStandardDev()/getMean())*10000)/100;
     }
 
 }

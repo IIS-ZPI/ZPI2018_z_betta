@@ -46,13 +46,12 @@ class StatisticMethodsTest {
         assertEquals((float)x,y);
     }
 
-//Współczynnik zmienności
-    //@Test
-    /*void testWeekGetVariationCoefficient(){
+    @Test
+    void testWeekGetVariationCoefficient(){
         float y =weekStatisticMethodsTest.getVariationCoefficient();
-        double x= 0.36; //Wartość podana w procentach
+        double x= 0.32; //Wartość podana w procentach
         assertEquals((float)x,y);
-    }*/
+    }
 
 //Sesje wzrostowe
     @Test
@@ -117,13 +116,12 @@ class StatisticMethodsTest {
         assertEquals((float)x,y);
     }
 
-//Współczynnik zmienności
-    /*@Test
+    @Test
     void testTwoWeeksGetVariationCoefficient(){
         float y =twoWeeksStatisticMethodsTest.getVariationCoefficient();
-        double x= 0.50; //Wartość podana w procentach
+        double x= 0.47; //Wartość podana w procentach
         assertEquals((float)x,y);
-    }*/
+    }
 
 //Sesje wzrostowe
     @Test
@@ -186,13 +184,12 @@ class StatisticMethodsTest {
         assertEquals((float)x,y);
     }
 
-//Współczynnik zmienności
-    /*@Test
+    @Test
     void testMonthGetVariationCoefficient(){
         float y =monthStatisticMethodsTest.getVariationCoefficient();
-        double x= 0.6; //Wartość podana w procentach
+        double x= 0.58; //Wartość podana w procentach
         assertEquals((float)x,y);
-    }*/
+    }
 
 //Sesje wzrostowe
     @Test
@@ -253,15 +250,15 @@ class StatisticMethodsTest {
         double x= 0.0461;
         assertEquals((float)x,y);
     }
-/*
+
     //Współczynnik zmienności
     @Test
     void testQuarterGetVariationCoefficient(){
         float y =quarterStatisticMethodsTest.getVariationCoefficient();
-        double x= 0.98; //Wartość podana w procentach
+        double x= 0.97; //Wartość podana w procentach
         assertEquals((float)x,y);
     }
-*/
+
     //Sesje wzrostowe
     @Test
     void testQuarterGetWzrostowa(){
@@ -321,15 +318,14 @@ class StatisticMethodsTest {
         double x= 0.0806;
         assertEquals((float)x,y);
     }
-/*
+
 //Współczynnik zmienności
     @Test
     void testHalfYearGetVariationCoefficient(){
         float y =halfYearStatisticMethodsTest.getVariationCoefficient();
-        double x= 1.69; //Wartość podana w procentach
+        double x= 1.68; //Wartość podana w procentach
         assertEquals((float)x,y);
     }
-*/
 
     //Sesje wzrostowe
     @Test
@@ -390,15 +386,15 @@ class StatisticMethodsTest {
         float x = (float) 0.0733;
         assertEquals(x,y);
     }
-/*
+
  //Współczynnik zmienności
     @Test
     void testYearGetVariationCoefficient(){
-        double y =yearStatisticMethodsTest.getVariationCoefficient();
-        double x= 1.53; //Wartość podana w procentach
+        float y =yearStatisticMethodsTest.getVariationCoefficient();
+        float x=  (float)1.52; //Wartość podana w procentach
         assertEquals(x,y);
     }
-*/
+
 //Sesje wzrostowe
     @Test
     void testYearGetWzrostowa(){
@@ -470,7 +466,7 @@ class StatisticMethodsTest {
         if(MAX_TIME_YEAR_PERFORMANCE>endTimeYear-startTimeYear) org.junit.Assert.assertTrue(flagaFalseYearB = true);
         assertEquals(true, flagaFalseYearB );
     }
-/*
+
 //TEST WYDAJNOŚCIOWY  Współczynnik zmienności
     @Test
     void testPerformanceYearGetVariationCoefficient(){
@@ -480,7 +476,7 @@ class StatisticMethodsTest {
         if(MAX_TIME_YEAR_PERFORMANCE>endTimeYear-startTimeYear) org.junit.Assert.assertTrue(flagaFalseYearB = true);
         assertEquals(true, flagaFalseYearB );
     }
-*/
+
 //TEST WYDAJNOŚCIOWY  Sesje wzrostowe
     @Test
     void testPerformanceYearGetWzrostowa(){
