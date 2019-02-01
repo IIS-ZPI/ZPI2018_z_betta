@@ -78,14 +78,11 @@ public class StatisticMethods {
         double median = 0;
         float pos1 = (float) Math.floor((vals.size()-1) / 2.0);
         float pos2 = (float) Math.ceil((vals.size()-1) / 2.0);
-        System.out.println(pos1);
-        System.out.println(pos2);
         if (pos1 == pos2 ) {
             median = vals.get((int)pos1);
         } else {
             median = (vals.get((int)pos1) + vals.get((int)pos2)) / 2.0 ;
         }
-        System.out.println(median);
         return (double)Math.round( median * 10000) / 10000 ;
     }
 
@@ -100,11 +97,11 @@ public class StatisticMethods {
                 //System.out.println(vals.get(j));
                 //System.out.println();
                 //System.out.println(vals.get(i));
-                if ((vals.get(j) == vals.get(i)) && (i != j))
+                if ((vals.get(j).equals(vals.get(i))) && (i != j))
                     ++count;
             }
             //System.out.println(count);
-            if (count > maxCount) {
+            if (count > maxCount && count > 1) {
                 //System.out.println(i);
                 //System.out.println(vals.get(i));
                 maxCount = count;
@@ -128,9 +125,7 @@ public class StatisticMethods {
         for(float num: vals) {
             standardDeviation += Math.pow(num - mean, 2);
         }
-        float tmp = (float)Math.round( Math.sqrt(standardDeviation/length) * 10000) / 10000;
-        System.out.println(tmp);
-        return tmp;
+        return (float)Math.round( Math.sqrt(standardDeviation/length) * 10000) / 10000;
     }
 
 }

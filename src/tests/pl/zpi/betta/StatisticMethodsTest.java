@@ -377,8 +377,8 @@ class StatisticMethodsTest {
     @Test
     void testYearGetMode(){
         updateV(yearStatisticMethodsTest);
-        double y =yearStatisticMethodsTest.getMode();
-        double x= 4.7527; //Brak wartości
+        float y =yearStatisticMethodsTest.getMode();
+        float x= (float)4.7527; //Brak wartości
         assertEquals(x,y);
     }
 
@@ -386,8 +386,8 @@ class StatisticMethodsTest {
     @Test
     void testYearGetStandardDev(){
         updateV(yearStatisticMethodsTest);
-        double y = yearStatisticMethodsTest.getStandardDev();
-        double x = 0.0733;
+        float y = yearStatisticMethodsTest.getStandardDev();
+        float x = (float) 0.0733;
         assertEquals(x,y);
     }
 /*
