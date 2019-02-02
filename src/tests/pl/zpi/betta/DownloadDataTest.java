@@ -57,7 +57,7 @@ class DownloadDataTest {
         Map<String, Float> map = download.getValue();
         //System.out.println(map);
         //System.out.println(map.get("2019-01-03"));
-        double x=  0.035132;  //sprawdzona na sztywno
+        double x=  0.0351;  //sprawdzona na sztywno
         //System.out.println(x);
         assertEquals((float)x,map.get("2019-01-03"));
     }
