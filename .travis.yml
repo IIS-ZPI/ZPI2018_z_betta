@@ -4,4 +4,4 @@ jdk:
 sudo: false
 script:
   - mvn clean verify
-  - mvn surefire:StatisticMethodsTest -Dtest=StatisticMethodsTest
+  - mvn clean test

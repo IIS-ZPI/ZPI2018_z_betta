@@ -1,4 +1,4 @@
-package pl.zpi.betta;
+package java;
 
 import org.junit.jupiter.api.Test;
 
