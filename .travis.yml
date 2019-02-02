@@ -4,4 +4,3 @@ jdk:
 sudo: false
 script:
   - mvn clean verify
-  - mvn clean test
