@@ -3,5 +3,5 @@ jdk:
   - oraclejdk8
 sudo: false
 script:
-  - mvn compile
-  - mvn test
+  - mvn clean verify
+  - mvn clean test
