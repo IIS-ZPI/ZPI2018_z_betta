@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Map;
 
+import pl.zpi.betta.DownloadData;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class StatisticMethodsTest {
