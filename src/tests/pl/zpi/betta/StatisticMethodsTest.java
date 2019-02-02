@@ -24,7 +24,7 @@ class StatisticMethodsTest {
     void testWeekGetMedian(){
         updateV(weekStatisticMethodsTest);
         double y =weekStatisticMethodsTest.getMedian();
-        double x= 4.6805;
+        double x= 4.6805263;
         assertEquals(x,y);
     }
 
