@@ -1,6 +1,7 @@
 package java;
 
 import org.junit.jupiter.api.Test;
+import pl.zpi.betta.DownloadData;
 
 import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;

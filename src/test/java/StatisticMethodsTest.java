@@ -1,6 +1,8 @@
 package java;
 
 import org.junit.jupiter.api.Test;
+import pl.zpi.betta.DownloadData;
+import pl.zpi.betta.StatisticMethods;
 
 import java.util.Map;
 
