@@ -62,6 +62,7 @@ public class BorderPaneMainController {
         String value1 = (String) currencyChoiceBox1.getValue();
         String value2 = (String) currencyChoiceBox2.getValue();
         boolean checkBox2 = currencyBox2.isSelected();
+        String flag = (String) analysisChoiceBox.getValue();
 
         if(checkBox2){
             downloadData = new DownloadData(urlBuilder(value1));
@@ -70,9 +71,14 @@ public class BorderPaneMainController {
             currency.sessions();
             currency1 = new StatisticMethods(downloadData1.getValue(),value2);
             currency1.sessions();
-            analysis(currency);
-            analysis(currency1);
-        }
+                if (flag == "Rozkład częstości zmian") {
+                    analysisCompare(currency, currency1);
+                }
+                else {
+                    analysis(currency);
+                    analysis(currency1);
+                }
+                }
        else {
             downloadData = new DownloadData(urlBuilder(value1));
             currency = new StatisticMethods(downloadData.getValue(),value1);
@@ -109,23 +115,33 @@ public class BorderPaneMainController {
 
     public void analysis(StatisticMethods currency) {
         String analysis = (String) analysisChoiceBox.getValue();
-        switch(analysis) {
+        switch (analysis) {
             case "Wyznaczenie ilości sesji":
                 currency.getWzrostowa();
                 currency.getStala();
                 currency.getSpadkowa();
-                System.out.println("Waluta : " + currency.getCurrency()+ ", wzrostowa : " + currency.getWzrostowa() + ", stala : "  + currency.getStala() + ", spadkowa : " + currency.getSpadkowa());
+                System.out.println("Waluta : " + currency.getCurrency() + ", wzrostowa : " + currency.getWzrostowa() + ", stala : " + currency.getStala() + ", spadkowa : " + currency.getSpadkowa());
                 break;
             case "Miary statystyczne":
                 currency.getMedian();
                 currency.getMode();
                 currency.getStandardDev();
-                System.out.println("Waluta : " + currency.getCurrency()+ ", mediana : " + currency.getMedian() + ", dominanta : " + currency.getMode() + ", odchylenie standardowe : " + currency.getStandardDev());
+                System.out.println("Waluta : " + currency.getCurrency() + ", mediana : " + currency.getMedian() + ", dominanta : " + currency.getMode() + ", odchylenie standardowe : " + currency.getStandardDev());
                 break;
 
             case "Rozkład częstości zmian":
-
+                currency.getVariationCoefficient();
+                System.out.println("Waluta : " + currency.getCurrency() + ", rozklad czestosci zmian : " + currency.getVariationCoefficient());
                 break;
         }
+
+        }
+    public void analysisCompare(StatisticMethods currency, StatisticMethods currency1){
+
+                currency.getVariationCoefficient();
+                System.out.println("Waluta : " + currency.getCurrency() + ", rozklad czestosci zmian : " + currency.getVariationCoefficient());
+                currency1.getVariationCoefficient();
+                System.out.println("Waluta : " + currency1.getCurrency() + ", rozklad czestosci zmian : " + currency1.getVariationCoefficient());
+
+        }
     }
-}
