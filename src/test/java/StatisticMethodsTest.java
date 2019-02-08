@@ -43,7 +43,7 @@ class StatisticMethodsTest {
     void testWeekGetStandardDev(){
         updateV(weekStatisticMethodsTest);
         float y =weekStatisticMethodsTest.getStandardDev();
-        double x= 0.0151+1.0;
+        double x= 0.0151;
         assertEquals((float)x,y);
     }
 
